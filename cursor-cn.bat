@@ -1,24 +1,29 @@
 @echo off
 setlocal EnableExtensions
-chcp 65001 >nul 2>&1
 cd /d "%~dp0"
 title cursor-cn
 
-where node >nul 2>&1 || (
-  echo [错误] 未找到 Node.js 24 或更高版本。
+where node.exe >nul 2>&1
+if errorlevel 1 (
+  echo [ERROR] Node.js 24+ not found.
   pause
   exit /b 1
 )
 
-set "ACTION=%~1"
-if /i "%ACTION%"=="restore" set "ACTION=--restore"
-if /i "%ACTION%"=="fix" set "ACTION=--fix-checksum"
-if /i "%ACTION%"=="--fix" set "ACTION=--fix-checksum"
-if /i "%ACTION%"=="/?" set "ACTION=--help"
-if /i "%ACTION%"=="-h" set "ACTION=--help"
+set "ACTION="
+if /i "%~1"=="restore" set "ACTION=--restore"
+if /i "%~1"=="--restore" set "ACTION=--restore"
+if /i "%~1"=="fix" set "ACTION=--fix-checksum"
+if /i "%~1"=="--fix" set "ACTION=--fix-checksum"
+if /i "%~1"=="--fix-checksum" set "ACTION=--fix-checksum"
+if /i "%~1"=="/?" set "ACTION=--help"
+if /i "%~1"=="-h" set "ACTION=--help"
+if /i "%~1"=="--help" set "ACTION=--help"
+if /i "%~1"=="--print-paths" set "ACTION=--print-paths"
+if /i "%~1"=="--no-restart" set "ACTION=--no-restart"
 
-node "%~dp0cursor-cn.ts" %ACTION%
+node.exe "%~dp0cursor-cn.ts" %ACTION%
 set "EXIT_CODE=%ERRORLEVEL%"
-if not "%EXIT_CODE%"=="0" echo [错误] 操作未完成。
+if not "%EXIT_CODE%"=="0" echo [ERROR] Failed.
 pause
 exit /b %EXIT_CODE%

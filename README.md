@@ -10,7 +10,7 @@ node cursor-cn.ts --restore
 node cursor-cn.ts --fix-checksum
 ```
 
-Windows 可双击 `cursor-cn.bat`，macOS / Linux 可运行 `./cursor-cn.sh`。
+Windows 请双击 `cursor-cn.bat`，不要双击 `cursor-cn.ts`。macOS / Linux 运行 `./cursor-cn.sh`。
 
 - 默认运行：安装语言包并注入界面翻译
 - `--restore`：恢复原始文件
@@ -20,12 +20,14 @@ Windows 可双击 `cursor-cn.bat`，macOS / Linux 可运行 `./cursor-cn.sh`。
 
 ## 路径
 
-按以下顺序查找 Cursor 安装目录，找到后写入 `cursor-cn.config.json`：
+按以下顺序查找 Cursor 安装目录：
 
-1. `cursor-cn.config.json` 中的 `installDir`
+1. `cursor-cn.config.json` 中上次保存的 `installDir`
 2. 环境变量 `CURSOR_INSTALL_DIR` / `CURSOR_ROOT`
 3. 系统默认安装目录
-4. 手动输入
+4. 手动输入；校验通过后写入 `cursor-cn.config.json`，下次无需再填
+
+Windows 默认目录是 `%LOCALAPPDATA%\Programs\cursor`。如果 Cursor 装在其他盘，例如 `D:\cursor`，第一次运行时输入该路径即可。
 
 用户数据目录默认是 `%APPDATA%\Cursor`（Windows）或 `~/Library/Application Support/Cursor`（macOS），可用 `CURSOR_USER_DATA_DIR` 覆盖。
 
