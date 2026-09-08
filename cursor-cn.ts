@@ -273,7 +273,7 @@ async function QueBao_PiPei_YuYan_Bao_VSIX(): Promise<{ file: string; temporary:
 }
 function SheZhi_XianShi_YuYan() { const file = path.join(CURSOR_SHU_JU_LU_JING, "User", "locale.json"); fs.mkdirSync(path.dirname(file), { recursive: true }); if (fs.existsSync(file)) try { if (readJson(file).locale === XUAN_SHI_YU_YAN) return; } catch {} writeJson(file, { locale: XUAN_SHI_YU_YAN }); }
 function Shi_YuYanBao_ZaYin(line: string) {
-  return /DeprecationWarning|DEP0\d+|url\.parse|WHATWG URL|shell option true|trace-deprecation|security implications|CVEs are not issued/.test(line);
+  return /DeprecationWarning|DEP0\d+|url\.parse|WHATWG URL|shell option true|trace-deprecation|security implications|CVEs are not issued|^\(Use `/.test(line);
 }
 async function AnZhuang_GuanFang_YuYan_Bao() {
   const packageInfo = await QueBao_PiPei_YuYan_Bao_VSIX();

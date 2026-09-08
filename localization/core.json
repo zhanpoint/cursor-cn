@@ -1146,7 +1146,7 @@
         ],
         [
           "Pull Requests",
-          "Pull 请求"
+          "拉取请求"
         ],
         [
           "Review Provider",
@@ -2285,6 +2285,94 @@
         [
           "When to show the usage summary at the bottom of the chat pane",
           "何时在聊天面板底部显示用量摘要"
+        ],
+        [
+          "New Messages",
+          "新消息"
+        ],
+        [
+          "Choose the default behavior of messages sent while Agent is working",
+          "选择在 Agent 工作时发送消息的默认行为"
+        ],
+        [
+          "Manually Sent Messages from Queue",
+          "从队列手动发送的消息"
+        ],
+        [
+          "Choose the default behavior of messages sent from the queue",
+          "选择从队列发送的消息的默认行为"
+        ],
+        [
+          "Allow agent to switch to modes like Plan or Debug without asking. When off, Cursor asks first, but skips if unanswered within 15 seconds.",
+          "允许智能体在无需询问的情况下切换到 Plan 或 Debug 等模式。关闭时，Cursor 会先询问，但如果 15 秒内未作答则跳过。"
+        ],
+        [
+          "Interrupt",
+          "中断"
+        ],
+        [
+          "Continue Interrupted Agents",
+          "继续被中断的智能体"
+        ],
+        [
+          "Automatically resume working on agents and their subagents after a reload or restart",
+          "重新加载或重启后自动继续处理智能体及其子智能体的任务"
+        ],
+        [
+          "Show notifications for less urgent issues",
+          "为较不紧急的问题显示通知"
+        ],
+        [
+          "Choose Custom Sound...",
+          "选择自定义声音..."
+        ],
+        [
+          "Default Sound",
+          "默认声音"
+        ],
+        [
+          "Email",
+          "邮箱"
+        ],
+        [
+          "Profile Image",
+          "头像"
+        ],
+        [
+          "First Name",
+          "名字"
+        ],
+        [
+          "Last Name",
+          "姓氏"
+        ],
+        [
+          "Link 1",
+          "链接 1"
+        ],
+        [
+          "Public Profile",
+          "公开资料"
+        ],
+        [
+          "When enabled, your cursor.com profile page is visible to anyone with the link.",
+          "启用后，任何拥有链接的人都可查看你的 cursor.com 资料页。"
+        ],
+        [
+          "Git & PRs",
+          "Git 与拉取请求"
+        ],
+        [
+          "Choose Origin (cursor.com/codebase), GitHub, or Graphite for pull request links on web and desktop",
+          "选择在网页端和桌面端的拉取请求链接来源：cursor.com/codebase、GitHub 或 Graphite"
+        ],
+        [
+          "Sync Skills for Cloud Agents",
+          "为云端智能体同步技能"
+        ],
+        [
+          "Cursor syncs your local skills so they can be used with Cloud Agents. Turn this off to disable syncing.",
+          "Cursor 会同步你的本地技能，以便在云端智能体中使用。关闭可禁用同步。"
         ],
         [
           "Always",
@@ -9027,12 +9115,40 @@
           "使用始终在线的云端智能体自动化重复任务，响应环境触发器。"
         ],
         [
+          "Automate repetitive tasks with always-on agents and configure Cursor's built-in agents for your team.",
+          "使用始终在线的智能体自动化重复任务，并为你的团队配置 Cursor 内置智能体。"
+        ],
+        [
           "Use automations to save time on repetitive tasks with always-on agents",
           "使用自动化处理重复性任务，借助始终在线的智能体节省时间"
         ],
         [
           "Total Automations",
           "自动化总数"
+        ],
+        [
+          "Runs",
+          "运行记录"
+        ],
+        [
+          "Successful",
+          "成功"
+        ],
+        [
+          "Automation",
+          "自动化"
+        ],
+        [
+          "Triggered",
+          "触发方式"
+        ],
+        [
+          "Duration",
+          "时长"
+        ],
+        [
+          "No Runs Yet",
+          "暂无运行记录"
         ],
         [
           "Successful · 7d",
@@ -9369,6 +9485,22 @@
         [
           "Revert last change",
           "撤销上次更改"
+        ],
+        [
+          "Revert files to this message?",
+          "还原文件到此消息？"
+        ],
+        [
+          "Later messages in this chat will be removed. File changes after this message can be reverted so they match, or kept as they are.",
+          "此对话中后续的消息将被移除。此消息之后的文件更改可以还原以保持一致，或保持原样。"
+        ],
+        [
+          "Keep Files",
+          "保留文件"
+        ],
+        [
+          "Revert Files",
+          "还原文件"
         ],
         [
           "Review",
