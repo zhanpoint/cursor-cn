@@ -180,6 +180,9 @@
     ["Background agents only work in folders with a git repository. Please open a folder that contains a git repository to use this feature.", "后台智能体仅在包含 Git 仓库的文件夹中可用。请打开包含 Git 仓库的文件夹以使用此功能。"],
     ["Please open a folder to use background agents.", "请打开文件夹以使用后台智能体。"],
     ["Please open a folder to use background agents", "请打开文件夹以使用后台智能体"],
-    ["Review my code", "审查我的代码"]
+    ["Review my code", "审查我的代码"],
+    ["Agent starting expensive processes", "智能体正在启动高开销进程"],
+    ["Manage the processes started by your agent to keep your computer responsive.", "管理你的智能体启动的进程，以保持电脑响应流畅。"],
+    ["Manage Processes", "管理进程"]
   ]
 }

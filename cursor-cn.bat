@@ -24,6 +24,8 @@ if /i "%~1"=="--no-restart" set "ACTION=--no-restart"
 
 node.exe "%~dp0cursor-cn.ts" %ACTION%
 set "EXIT_CODE=%ERRORLEVEL%"
-if not "%EXIT_CODE%"=="0" echo [ERROR] Failed.
-pause
+if not "%EXIT_CODE%"=="0" (
+  echo [ERROR] Failed.
+  pause
+)
 exit /b %EXIT_CODE%

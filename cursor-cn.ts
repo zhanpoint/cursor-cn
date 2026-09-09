@@ -68,6 +68,39 @@ function HuoQu_ShuJu_LuJing() {
   if (Shi_MacOS()) return path.join(os.homedir(), "Library", "Application Support", "Cursor");
   return path.join(process.env.APPDATA || path.join(os.homedir(), "AppData", "Roaming"), "Cursor");
 }
+function HuoQu_ZhuoMian_LuJing() {
+  if (Shi_Windows()) {
+    const result = spawnSync("powershell.exe", ["-NoProfile", "-Command", "[Environment]::GetFolderPath('Desktop')"], { encoding: "utf8", windowsHide: true });
+    return result.status === 0 ? String(result.stdout || "").trim() : "";
+  }
+  if (Shi_MacOS()) {
+    const result = spawnSync("osascript", ["-e", "POSIX path of (path to desktop folder)"], { encoding: "utf8" });
+    return result.status === 0 ? String(result.stdout || "").trim() : "";
+  }
+  const result = spawnSync("xdg-user-dir", ["DESKTOP"], { encoding: "utf8" });
+  return result.status === 0 ? String(result.stdout || "").trim() : path.join(os.homedir(), "Desktop");
+}
+function YinHao_Shell_LuJing(value: string) { return `'${value.replaceAll("'", "'\\\"'\\\"'")}'`; }
+function ChuangJian_ZhuoMian_KuaiJie() {
+  const desktop = HuoQu_ZhuoMian_LuJing();
+  if (!desktop || !fs.existsSync(desktop)) return;
+  try {
+    if (Shi_Windows()) {
+      const shortcut = path.join(desktop, "Cursor 中文版.lnk");
+      const script = "$s=New-Object -ComObject WScript.Shell; $l=$s.CreateShortcut($env:CURSOR_CN_SHORTCUT); $l.TargetPath=$env:CURSOR_CN_TARGET; $l.WorkingDirectory=$env:CURSOR_CN_WORKDIR; $l.Description='Start Cursor with localization check'; $l.Save()";
+      const result = spawnSync("powershell.exe", ["-NoProfile", "-ExecutionPolicy", "Bypass", "-Command", script], { encoding: "utf8", windowsHide: true, env: { ...process.env, CURSOR_CN_SHORTCUT: shortcut, CURSOR_CN_TARGET: path.join(SCRIPT_DIR, "cursor-cn.bat"), CURSOR_CN_WORKDIR: SCRIPT_DIR } });
+      if (result.status !== 0) throw new Error(String(result.stderr || "PowerShell 执行失败").trim());
+    } else if (Shi_MacOS()) {
+      const shortcut = path.join(desktop, "Cursor 中文版.command");
+      fs.writeFileSync(shortcut, `#!/usr/bin/env bash\nexec ${YinHao_Shell_LuJing(path.join(SCRIPT_DIR, "cursor-cn.sh"))} "$@"\n`, "utf8");
+      fs.chmodSync(shortcut, 0o755);
+    } else {
+      const shortcut = path.join(desktop, "Cursor 中文版.desktop");
+      fs.writeFileSync(shortcut, `[Desktop Entry]\nType=Application\nName=Cursor 中文版\nExec=${YinHao_Shell_LuJing(path.join(SCRIPT_DIR, "cursor-cn.sh"))}\nTerminal=true\nCategories=Development;IDE;\n`, "utf8");
+      fs.chmodSync(shortcut, 0o755);
+    }
+  } catch (e) { console.log(`[提示] 创建桌面快捷方式失败：${e instanceof Error ? e.message : e}`); }
+}
 function DuQu_LuJing_PeiZhi(): JsonObject {
   try { return fs.existsSync(PATH_CONFIG_FILE) ? readJson(PATH_CONFIG_FILE) : {}; } catch { return {}; }
 }
@@ -265,6 +298,50 @@ async function ChaXun_ShiChang_BanBenLieBiao() { const response = await fetch(LA
 function XuanZe_PiPei_ShiChang_BanBen(cursor: any, versions: any[]) { const p = JieXi_ZhuCiYao_BanBen(cursor); return p ? versions.find(x => String(x).startsWith(p + ".")) || null : null; }
 async function XiaZai_ShiChang_VSIX(version: string, target: string) { const r = await fetch(LANGUAGE_PACK_MARKETPLACE_DOWNLOAD.replace("{version}", encodeURIComponent(version)), { headers: { "User-Agent": "Cursor-Localization-Tool", Accept: "application/octet-stream" } }); if (!r.ok) throw new Error(`HTTP ${r.status}`); let data = Buffer.from(await r.arrayBuffer()); if (data[0] === 0x1f && data[1] === 0x8b) data = zlib.gunzipSync(data); ZipRead(data, "extension/package.json"); fs.writeFileSync(target, data); }
 function HuoQu_Cursor_VSCode_BanBen() { try { return readJson(path.join(HuoQu_App_GenMuLu_LuJing(CURSOR_AN_ZHUANG_LU_JING), "product.json")).vscodeVersion; } catch (e) { console.log(`[语言包] 读取 vscodeVersion 失败: ${e}`); return null; } }
+function HuoQu_Cursor_BanBen() {
+  try {
+    const p = path.join(HuoQu_App_GenMuLu_LuJing(CURSOR_AN_ZHUANG_LU_JING), "product.json");
+    return `${fs.statSync(p).mtimeMs}:${readJson(p).version || readJson(p).vscodeVersion || ""}`;
+  } catch { return ""; }
+}
+function ShiSuo_YiZai() {
+  try { fs.writeFileSync(UPDATE_WATCH_LOCK, `${process.pid}\n`, { flag: "wx" }); return true; } catch { return false; }
+}
+function JieSuo_GengXin_JianCe() { try { fs.rmSync(UPDATE_WATCH_LOCK, { force: true }); } catch {} }
+function QiDong_GengXin_JianCe(initialVersion: string) {
+  if (!initialVersion || !ShiSuo_YiZai()) return;
+  const child = spawn(process.execPath, [path.resolve(String(process.argv[1])), "--watch-updates"], {
+    detached: true, stdio: "ignore", windowsHide: true,
+    env: { ...process.env, CURSOR_CN_WATCH_VERSION: initialVersion },
+  });
+  child.unref();
+}
+async function JianCe_GengXin_Bing_ZiDong_HanHua() {
+  const previous = process.env.CURSOR_CN_WATCH_VERSION || HuoQu_Cursor_BanBen();
+  while (true) {
+    await new Promise(resolve => setTimeout(resolve, UPDATE_WATCH_INTERVAL));
+    const current = HuoQu_Cursor_BanBen();
+    if (!current || current === previous) continue;
+    console.log(`[更新] 检测到 Cursor 版本变化，正在重新汉化...`);
+    GuanBi_Cursor();
+    try {
+      if (!fs.existsSync(HuoQu_BeiFen_LuJing())) ChuangJian_BeiFen();
+      XieRu_FanYi_JS();
+      ShengJi_HTML_ZhuRu_If_Needed();
+      if (!JianCha_YiZhuRu()) ZhuRu_HTML();
+      ZhuRu_TuoPan_HanHua();
+      GengXin_JiaoYan_Zhi();
+      QiDong_Cursor();
+      JieSuo_GengXin_JianCe();
+      return;
+    } catch (e) {
+      console.error(`[更新] 自动汉化失败：${e instanceof Error ? e.message : e}`);
+      QiDong_Cursor();
+      JieSuo_GengXin_JianCe();
+      return;
+    }
+  }
+}
 async function QueBao_PiPei_YuYan_Bao_VSIX(): Promise<{ file: string; temporary: boolean } | null> {
   const cursor = HuoQu_Cursor_VSCode_BanBen();
   const local = process.env.CURSOR_LANGUAGE_PACK_VSIX;
@@ -320,6 +397,8 @@ async function ZhuChengXu() {
     process.exitCode = 1;
     return;
   }
+
+  ChuangJian_ZhuoMian_KuaiJie();
 
   if (arg === "--fix-checksum") {
     if (!GengXin_JiaoYan_Zhi()) process.exitCode = 1;

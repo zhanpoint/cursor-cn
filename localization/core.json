@@ -23,6 +23,22 @@
           "云端智能体"
         ],
         [
+          "Use your skills with Cloud Agents",
+          "使用云端智能体的技能"
+        ],
+        [
+          "Sync your local skills to use them with Cloud Agents. Any changes will update automatically.",
+          "同步本地技能以便在云端智能体中使用。任何更改都会自动更新。"
+        ],
+        [
+          "Not now",
+          "暂不"
+        ],
+        [
+          "Sync",
+          "同步"
+        ],
+        [
           "Plugins",
           "插件"
         ],
@@ -2359,6 +2375,22 @@
           "启用后，任何拥有链接的人都可查看你的 cursor.com 资料页。"
         ],
         [
+          "Several agent tasks are competing for system resources. Run fewer in parallel to keep your system responsive.",
+          "多个智能体任务正在争抢系统资源。减少并行数量可保持系统响应流畅。"
+        ],
+        [
+          "Process",
+          "进程"
+        ],
+        [
+          "RAM",
+          "内存"
+        ],
+        [
+          "Kill Process",
+          "结束进程"
+        ],
+        [
           "Git & PRs",
           "Git 与拉取请求"
         ],
@@ -3031,8 +3063,16 @@
           "允许从手机和网页远程控制此计算机上的智能体"
         ],
         [
+          "Allow agents on this machine to be controlled remotely from mobile",
+          "允许从手机远程控制此计算机上的智能体"
+        ],
+        [
           "Allow agents on this machine to be controlled remotely from mobile and web.",
           "允许从手机和网页远程控制此计算机上的智能体。"
+        ],
+        [
+          "Allow agents on this machine to be controlled remotely from mobile.",
+          "允许从手机远程控制此计算机上的智能体。"
         ],
         [
           "Control agents on this machine from your phone, web, and other devices",
@@ -11159,6 +11199,74 @@
         [
           "Getting Started",
           "开始使用"
+        ],
+        [
+          "Bold",
+          "加粗"
+        ],
+        [
+          "Italic",
+          "斜体"
+        ],
+        [
+          "Underline",
+          "下划线"
+        ],
+        [
+          "Strikethrough",
+          "删除线"
+        ],
+        [
+          "Insert Link",
+          "插入链接"
+        ],
+        [
+          "Add Link",
+          "添加链接"
+        ],
+        [
+          "Bulleted List",
+          "无序列表"
+        ],
+        [
+          "Bullet List",
+          "无序列表"
+        ],
+        [
+          "Numbered List",
+          "有序列表"
+        ],
+        [
+          "Ordered List",
+          "有序列表"
+        ],
+        [
+          "Blockquote",
+          "引用块"
+        ],
+        [
+          "Quote",
+          "引用"
+        ],
+        [
+          "Inline Code",
+          "行内代码"
+        ],
+        [
+          "Code Block",
+          "代码块"
+        ],
+        [
+          "Filter",
+          "筛选"
+        ],
+        [
+          "Add Comment",
+          "添加评论"
+        ],
+        [
+          "Comment",
+          "评论"
         ],
         [
           "Search Skills for User...",
