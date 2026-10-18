@@ -1,7 +1,317 @@
 {
   "description": "Cursor 通用界面主词典。修改后重新运行 node cursor-cn.ts 注入生效。",
-  "updatedAt": "2026-07-15",
+  "updatedAt": "2026-10-18",
   "sections": [
+    {
+      "id": "语音_voice_设置",
+      "title": "语音设置与选项",
+      "entries": [
+        [
+          "Voice",
+          "语音"
+        ],
+        [
+          "Source Control",
+          "源代码管理"
+        ],
+        [
+          "Agent Voice",
+          "智能体音色"
+        ],
+        [
+          "Speed",
+          "语速"
+        ],
+        [
+          "Language",
+          "语言"
+        ],
+        [
+          "Microphone",
+          "麦克风"
+        ],
+        [
+          "Default voice for voice chats",
+          "语音对话的默认音色"
+        ],
+        [
+          "Default voice for voice chats. Changing the voice plays a short sample.",
+          "语音对话的默认音色。更改音色时会播放一小段试听音频。"
+        ],
+        [
+          "How quickly the voice speaks in voice chats",
+          "语音对话中的说话速度"
+        ],
+        [
+          "How quickly the voice speaks in voice chats.",
+          "语音对话中的说话速度。"
+        ],
+        [
+          "Language used in voice chats",
+          "语音对话使用的语言"
+        ],
+        [
+          "Language used in voice chats.",
+          "语音对话使用的语言。"
+        ],
+        [
+          "Microphone used in voice chats.",
+          "语音对话使用的麦克风。"
+        ],
+        [
+          "Words that send your prompt while you dictate",
+          "口述时用于发送提示词的关键词"
+        ],
+        [
+          "Words that send your prompt while you dictate. Voice chats ignore them.",
+          "口述输入时，说出这些关键词即可发送提示词；语音对话中不启用此功能。"
+        ],
+        [
+          "Choose a voice",
+          "选择音色"
+        ],
+        [
+          "Play voice sample",
+          "试听音色"
+        ],
+        [
+          "Stop voice sample",
+          "停止试听"
+        ],
+        [
+          "System Default",
+          "系统默认"
+        ],
+        [
+          "Auto-detect",
+          "自动检测"
+        ],
+        [
+          "English",
+          "英语"
+        ],
+        [
+          "Arabic (Egypt)",
+          "阿拉伯语（埃及）"
+        ],
+        [
+          "Arabic (Saudi Arabia)",
+          "阿拉伯语（沙特阿拉伯）"
+        ],
+        [
+          "Arabic (United Arab Emirates)",
+          "阿拉伯语（阿拉伯联合酋长国）"
+        ],
+        [
+          "Bengali",
+          "孟加拉语"
+        ],
+        [
+          "Catalan",
+          "加泰罗尼亚语"
+        ],
+        [
+          "Chinese (Simplified)",
+          "简体中文"
+        ],
+        [
+          "Danish",
+          "丹麦语"
+        ],
+        [
+          "Dutch",
+          "荷兰语"
+        ],
+        [
+          "Finnish",
+          "芬兰语"
+        ],
+        [
+          "French",
+          "法语"
+        ],
+        [
+          "German",
+          "德语"
+        ],
+        [
+          "Hindi",
+          "印地语"
+        ],
+        [
+          "Hungarian",
+          "匈牙利语"
+        ],
+        [
+          "Indonesian",
+          "印度尼西亚语"
+        ],
+        [
+          "Italian",
+          "意大利语"
+        ],
+        [
+          "Japanese",
+          "日语"
+        ],
+        [
+          "Korean",
+          "韩语"
+        ],
+        [
+          "Polish",
+          "波兰语"
+        ],
+        [
+          "Portuguese (Brazil)",
+          "葡萄牙语（巴西）"
+        ],
+        [
+          "Portuguese (Portugal)",
+          "葡萄牙语（葡萄牙）"
+        ],
+        [
+          "Russian",
+          "俄语"
+        ],
+        [
+          "Spanish (Mexico)",
+          "西班牙语（墨西哥）"
+        ],
+        [
+          "Spanish (Spain)",
+          "西班牙语（西班牙）"
+        ],
+        [
+          "Swedish",
+          "瑞典语"
+        ],
+        [
+          "Thai",
+          "泰语"
+        ],
+        [
+          "Turkish",
+          "土耳其语"
+        ],
+        [
+          "Vietnamese",
+          "越南语"
+        ],
+        [
+          "Altair",
+          "阿尔泰尔"
+        ],
+        [
+          "Ara",
+          "阿拉"
+        ],
+        [
+          "Atlas",
+          "阿特拉斯"
+        ],
+        [
+          "Aurora",
+          "奥罗拉"
+        ],
+        [
+          "Carina",
+          "卡丽娜"
+        ],
+        [
+          "Castor",
+          "卡斯托尔"
+        ],
+        [
+          "Celeste",
+          "塞莱斯特"
+        ],
+        [
+          "Cosmo",
+          "科斯莫"
+        ],
+        [
+          "Eve",
+          "伊芙"
+        ],
+        [
+          "Helios",
+          "赫利俄斯"
+        ],
+        [
+          "Helix",
+          "赫利克斯"
+        ],
+        [
+          "Iris",
+          "艾瑞丝"
+        ],
+        [
+          "Kepler",
+          "开普勒"
+        ],
+        [
+          "Leo",
+          "利奥"
+        ],
+        [
+          "Liora",
+          "莉奥拉"
+        ],
+        [
+          "Lumen",
+          "卢门"
+        ],
+        [
+          "Luna",
+          "露娜"
+        ],
+        [
+          "Lux",
+          "卢克斯"
+        ],
+        [
+          "Naksh",
+          "纳克什"
+        ],
+        [
+          "Orion",
+          "奥里恩"
+        ],
+        [
+          "Perseus",
+          "珀尔修斯"
+        ],
+        [
+          "Rex",
+          "雷克斯"
+        ],
+        [
+          "Rigel",
+          "里格尔"
+        ],
+        [
+          "Sal",
+          "萨尔"
+        ],
+        [
+          "Sirius",
+          "西里乌斯"
+        ],
+        [
+          "Ursa",
+          "乌尔萨"
+        ],
+        [
+          "Zagan",
+          "扎甘"
+        ],
+        [
+          "Zenith",
+          "泽尼思"
+        ]
+      ]
+    },
     {
       "id": "左侧导航栏",
       "title": "左侧导航栏",

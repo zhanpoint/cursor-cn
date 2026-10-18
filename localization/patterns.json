@@ -1,7 +1,22 @@
 {
   "description": "动态文本正则替换（MoShi_FanYi）。",
-  "updatedAt": "2026-08-13",
+  "updatedAt": "2026-10-18",
   "patterns": [
+    {
+      "regex": "^Default - (.+)$",
+      "flags": "",
+      "replacement": "默认 - $1"
+    },
+    {
+      "regex": "^Communications - (.+)$",
+      "flags": "",
+      "replacement": "通信 - $1"
+    },
+    {
+      "regex": "^Microphone (\\d+)$",
+      "flags": "",
+      "replacement": "麦克风 $1"
+    },
     {
       "regex": "^(\\d+) requests? remaining$",
       "flags": "i",
