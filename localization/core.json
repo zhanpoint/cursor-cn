@@ -1,6 +1,6 @@
 {
   "description": "Cursor 通用界面主词典。修改后重新运行 node cursor-cn.ts 注入生效。",
-  "updatedAt": "2026-10-18",
+  "updatedAt": "2026-10-24",
   "sections": [
     {
       "id": "语音_voice_设置",
@@ -677,6 +677,14 @@
         [
           "Upgrade",
           "升级"
+        ],
+        [
+          "Upgrade your plan",
+          "升级套餐"
+        ],
+        [
+          "Choose a plan with more usage",
+          "选择用量更多的套餐"
         ],
         [
           "Upgrade to Pro",

@@ -862,6 +862,7 @@
         var result = ChaZhao_FanYi(text);
         if (!result) result = FanYi_TiJiao_PingFen_WenBen(text) || FanYi_TiJiao_PingFen_WenBen(trimmed);
         if (result) {
+            if (result === trimmed) return;
             var prefix = text.substring(0, text.indexOf(trimmed));
             var suffix = text.substring(text.indexOf(trimmed) + trimmed.length);
             node.textContent = prefix + result + suffix;
@@ -1613,6 +1614,14 @@
         var huiDiaoQiZhi = 0;
         for (var i = 0; i < mutations.length; i++) {
             var m = mutations[i];
+            // React can reuse a text node when switching tabs or refreshing a label.
+            if (m.type === 'characterData') {
+                var parent = m.target.parentElement;
+                if (parent && !Shi_BianJiQi_QuYu(m.target) && !parent.closest('[contenteditable="true"]')) {
+                    TianJia_DaiChuLi(m.target);
+                }
+                continue;
+            }
             if (m.type === 'childList') {
                 var added = m.addedNodes;
                 for (var j = 0; j < added.length; j++) {
