@@ -1,6 +1,6 @@
 {
   "description": "Cursor 通用界面主词典。修改后重新运行 node cursor-cn.ts 注入生效。",
-  "updatedAt": "2026-10-24",
+  "updatedAt": "2026-10-25",
   "sections": [
     {
       "id": "语音_voice_设置",
@@ -3427,6 +3427,10 @@
         [
           "Remote Control",
           "远程控制"
+        ],
+        [
+          "Allow agents on this computer to be controlled remotely from mobile",
+          "允许通过手机远程控制此电脑上的智能体"
         ],
         [
           "Allow agents on this machine to be controlled remotely from mobile and web",
@@ -7741,6 +7745,22 @@
         [
           "Tool Call Density",
           "工具调用密度"
+        ],
+        [
+          "Chat Width",
+          "对话宽度"
+        ],
+        [
+          "Set the maximum width of Agent conversations",
+          "设置智能体对话的最大宽度"
+        ],
+        [
+          "Narrow",
+          "窄"
+        ],
+        [
+          "Wide",
+          "宽"
         ],
         [
           "Adjust how much detail is shown for tool calls",

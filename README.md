@@ -7,23 +7,24 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js 24+](https://img.shields.io/badge/Node.js-24%2B-5FA04E.svg)](https://nodejs.org/)
 
-[开始使用](#使用) · [问题反馈](https://github.com/zhanpoint/cursor-cn/issues) · [参与贡献](#参与贡献)
+[快速上手](#快速上手) · [问题反馈](https://github.com/zhanpoint/cursor-cn/issues) · [参与贡献](#参与贡献)
 
 </div>
 
 结合官方简体中文语言包与本地翻译词典，补齐 Cursor 专有界面的中文文案。仅使用 Node.js 内置模块，无需安装 npm 依赖。
 
-## 功能
+## 快速上手
 
-- **界面汉化**：覆盖设置、智能体、规则、命令、菜单、提示与插件市场等界面文案。
-- **动态翻译**：跟随界面加载与文本更新处理翻译，跳过代码编辑区和可编辑内容。
-- **语言包适配**：匹配 Cursor 内置的 VS Code 版本，安装官方简体中文语言包。
-- **备份与恢复**：备份被修改的原始文件，支持恢复和文件校验值修复。
-- **词典维护**：翻译词典与运行引擎分离，便于补充遗漏和适配新版本。
+**准备环境**：安装 Cursor 和 [Node.js 24+](https://nodejs.org/)。无需运行 `npm install`。
 
-## 使用
+1. [下载源码 ZIP](https://github.com/zhanpoint/cursor-cn/archive/refs/heads/main.zip)，解压到本地。
+2. 保存 Cursor 中正在编辑的文件。
+3. **Windows**：双击解压目录中的 `cursor-cn.bat`。**macOS**：在该目录打开终端，运行 `bash cursor-cn.sh`。
 
-准备好已安装的 Cursor 和 [Node.js 24+](https://nodejs.org/)，下载本项目并解压，或使用 Git 获取：
+等待终端提示完成，Cursor 会自动重新启动。以后直接使用原有快捷方式打开即可。首次运行若提示安装路径，填写 Cursor 实际安装目录。
+
+<details>
+<summary>使用 Git 和命令行</summary>
 
 ```bash
 git clone https://github.com/zhanpoint/cursor-cn.git
@@ -31,9 +32,21 @@ cd cursor-cn
 node cursor-cn.ts
 ```
 
-Windows 也可双击 `cursor-cn.bat`；macOS 可运行 `bash cursor-cn.sh`。不要双击 `.ts` 文件。
+不要双击 `.ts` 文件。工具运行时会关闭 Cursor，请先保存文件。
 
-运行前请保存正在编辑的文件。工具会关闭 Cursor、应用汉化，并在完成后默认重新启动。之后使用原有快捷方式正常打开即可；Cursor 更新后如有英文文案恢复，重新运行本工具。
+</details>
+
+## 功能
+
+- **界面汉化**：补齐设置、智能体、规则、命令、菜单、提示与插件市场等界面文案。
+- **动态翻译**：跟随界面加载与文本更新处理翻译，跳过代码编辑区和可编辑内容。
+- **语言包适配**：匹配 Cursor 内置的 VS Code 版本，安装官方简体中文语言包。
+- **备份与恢复**：备份被修改的原始文件，支持恢复和文件校验值修复。
+- **词典维护**：翻译词典与运行引擎分离，便于补充遗漏和适配新版本。
+
+## 使用与配置
+
+Cursor 更新后可能覆盖界面翻译，重新运行本工具即可。通过 Git 获取项目的用户可先执行 `git pull` 更新词典，再重新应用。
 
 ### 常用命令
 
