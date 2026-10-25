@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Node.js 24+](https://img.shields.io/badge/Node.js-24%2B-5FA04E.svg)](https://nodejs.org/)
 
-[快速上手](#快速上手) · [问题反馈](https://github.com/zhanpoint/cursor-cn/issues) · [参与贡献](#参与贡献)
+[下载最新版](https://github.com/zhanpoint/cursor-cn/releases/latest) · [快速上手](#快速上手) · [问题反馈](https://github.com/zhanpoint/cursor-cn/issues)
 
 </div>
 
@@ -17,7 +17,7 @@
 
 **准备环境**：安装 Cursor 和 [Node.js 24+](https://nodejs.org/)。无需运行 `npm install`。
 
-1. [下载源码 ZIP](https://github.com/zhanpoint/cursor-cn/archive/refs/heads/main.zip)，解压到本地。
+1. 打开[最新发布页](https://github.com/zhanpoint/cursor-cn/releases/latest)，下载 **Assets → Source code (zip)** 并解压。
 2. 保存 Cursor 中正在编辑的文件。
 3. **Windows**：双击解压目录中的 `cursor-cn.bat`。**macOS**：在该目录打开终端，运行 `bash cursor-cn.sh`。
 
