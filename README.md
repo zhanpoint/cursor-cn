@@ -46,7 +46,11 @@ node cursor-cn.ts
 
 ## 使用与配置
 
-Cursor 更新后可能覆盖界面翻译，重新运行本工具即可。通过 Git 获取项目的用户可先执行 `git pull` 更新词典，再重新应用。
+**Windows 自动恢复**：安装汉化后启用当前用户的登录启动检查，保留原有快捷方式与任务栏入口。Cursor 更新覆盖汉化时，后台等待文件稳定后自动重新应用；若 Cursor 正在运行，会关闭并重新启动，通常需等待约 10–15 秒。请在更新前保存文件。
+
+请保留本项目目录和 Node.js，自动检查依赖它们运行。使用 `--restore` 会同时停用后台检查与登录启动。macOS 更新后仍需手动重新运行工具。
+
+通过 Git 获取项目的用户可执行 `git pull` 更新词典，再重新应用。
 
 ### 常用命令
 
@@ -91,7 +95,7 @@ Windows 默认安装目录为 `%LOCALAPPDATA%\Programs\cursor`；安装在其他
 修改时请沿用现有结构，保留产品名称、命令与参数。翻译词典修改后需重新运行工具才能应用。
 
 ```bash
-node --test localization.test.js
+node --test localization.test.js jsonc.test.ts update-watch.test.ts
 ```
 
 ## 许可

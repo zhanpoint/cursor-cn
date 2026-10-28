@@ -7,3 +7,4 @@ workbench.html
 product.json
 cursor-cn.config.json
 .DS_Store
+.cursor-cn-watch.*

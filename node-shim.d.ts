@@ -1,6 +1,8 @@
 declare var process: any;
 declare var console: any;
 declare var Buffer: any;
+declare function setInterval(callback: () => void, milliseconds: number): any;
+declare function clearInterval(timer: any): void;
 declare function fetch(input: any, init?: any): Promise<any>;
 
 declare module "node:fs" {
